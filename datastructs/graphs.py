@@ -20,21 +20,15 @@ def repGraph(eges):
 #  n: [n, n, n, n],
 # }
 def bfs(edges, s):
-  # represent the graph as an adj list
   adjList = repGraph(edges)
-  # add the starting point into the queue
   visit = deque()
   visit.append(s)
-  # keep track of all the visited node
   visited = set()
   while len(visit) > 0:
-    # get the node leftmost, print it, and add it to the visited set
     currNode = visit.popleft()
     print(currNode)
     visited.add(currNode)
-    # find all the neighbors of the current node
     neighbors = adjList[currNode]
-    # for each neighbor, we want to add it to queue if not visited before
     for neighbor in neighbors:
       if neighbor not in visited:
         visit.append(neighbor)
