@@ -33,6 +33,21 @@ def bfs(edges, s):
       if neighbor not in visited:
         visit.append(neighbor)
 
+# so you are going deepest possible node 
+# coming one level up and visit all of their nodes 
+# then coming back up 
+def dfs(edges, s):
+  adjList = repGraph(edges)
+  visited = set()
+  toVisit = deque()
+  toVisit.append(s)
+  while len(toVisit) > 0:
+    currNode = toVisit.pop()
+    print(currNode)
+    visited.add(currNode)
+    neighbors = adjList[currNode]
+    for neighbor in neighbors:
+      if neighbor not in visited:
+        toVisit.append(neighbor)
 
-
-bfs(edges, 2)
+dfs(edges, 2)
