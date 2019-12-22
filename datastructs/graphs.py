@@ -5,6 +5,7 @@
 from collections import defaultdict
 from collections import deque
 
+# Edges of an undirected graph.
 edges = [(1, 2), (1, 5), (2, 5), (2, 4), (2, 3), (3, 8)]
 
 def adjListRep(edges):
