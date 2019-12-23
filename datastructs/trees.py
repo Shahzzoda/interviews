@@ -53,7 +53,7 @@ n13.left = n9
 #  / \   /
 # 1   5 9
 
-# 
+
 def inorder(node):
     if(node != None):
         inorder(node.left)
