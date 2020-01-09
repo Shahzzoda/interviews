@@ -15,28 +15,30 @@
 
 # Here's the iterative binary search algorithm:
 def binarySearch1(nums, val):
-    l, r = 0, len(nums) - 1
-    while l <= r: 
-        m = (l + r ) // 2
-        if nums[m] > val:
-            r = m - 1 
-        elif nums[m] <  val:
-            l = m + 1
+    start, end = 0, len(nums) - 1
+    while start <= end: 
+        mid = (start + end ) // 2
+        if nums[mid] > val:
+            end = mid - 1 
+        elif nums[mid] <  val:
+            start = mid + 1
         else:
-            return m 
+            return mid 
     else:
         return -1
 
 # Here's the recursive binary search algorithm:
-def binarySearch2(nums, val, l, r):
-    if l > r: return -1
-    m = (l + r) // 2 
-    if nums[m] == val:return m 
-    if nums[m] > val:
-        return binarySearch2(nums, val, l, m-1)
+def binarySearch2(nums, val, start, end):
+    if start > end:
+        return -1
+        
+    mid = (start + end) // 2 
+    if nums[mid] == val:
+        return mid 
+    elif nums[mid] > val:
+        return binarySearch2(nums, val, start, mid-1)
     else:
-        # meaning nums[m] <  val
-        return binarySearch2(nums, val, m+1, r)
+        return binarySearch2(nums, val, mid+1, end)
     
 # Linear search is O(n)
 # You go through every value in the array
