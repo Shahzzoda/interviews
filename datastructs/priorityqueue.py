@@ -95,7 +95,9 @@ class Heap():
         self.heap[j] = self.heap[i]
         self.heap[i] = temp
 
-heap = Heap()
-heap.makeheap([1, 2, 3, 4, 5, 6, 6, 9, 10])
-print "now we try popping"
-heap.pop()
+# heap = Heap()
+# heap.makeheap([1, 2, 3, 4, 5, 6, 6, 9, 10])
+# print "now we try popping"
+# heap.pop()
+
+t = [(1, 2), (2, 3), (9,||||
