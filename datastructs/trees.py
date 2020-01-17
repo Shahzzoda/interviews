@@ -72,3 +72,8 @@ def postorder(node):
         preorder(node.right)
         print(node.data)
 
+# I've also found these helpful when working with binary trees:
+# left child node will be = i * 2 + 1 
+# right child node will be  = i * 2 + 2
+# parent node will be = i // 2 
+# where i will be the index of the current node. 
