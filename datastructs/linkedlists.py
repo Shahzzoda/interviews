@@ -64,7 +64,7 @@ def reversesingly1(head):
 #    you get it. at the end, it returns with the reversed linked list. 
 
 def reversesingly2(head):
-    
+
 
 
 
