@@ -45,8 +45,44 @@ def insertionsort(arr):
             j -= 1 # keep going further left to check if the item is at the right place
         print(arr)
 
-# merge sort
+# merge sort - uses the classic divide and conquer to sort an array
+# it splits the array into half util it is comparing two elements.
+# for each of those left and right halves, it sorts them at each level
+# for instance: for array [1, 4, 8, 5]
+# [1, 4] and [8, 5]
+# then [1] and [4] as well as [8] and [5]
+# one and four get merged as [1, 4] and returned to be comapred to [5, 8]
+# both of those are compared to return [1, 4, 5, 8]
+# we'll need a recursive mergesort, and a helper function to sort the array
+def mergesort(arr):
+    if len(arr) < 2: return arr 
+    mid = len(arr) // 2
+    left = mergesort(arr[:mid])
+    right = mergesort(arr[mid:])
+    return merge(left, right)
 
+
+def merge(arr1, arr2):
+    if not arr1 or not arr2: return arr1 or arr2
+    len1, len2 = len(arr1), len(arr2)
+    i, j = 0, 0, 
+    arr = []
+    print("arr1:", arr1, "arr2:", arr2)
+    while i < len1 and j < len2:
+        print(arr1[i], "vs", arr2[j])
+        if arr1[i] < arr2[j]:
+            arr.append(arr1[i])
+            i += 1
+        else:
+            arr.append(arr2[j])
+            j += 1
+    if i < len1:
+        arr.extend(arr1[i:])
+    if j < len2:
+        arr.extend(arr2[j:])
+    return arr
 # quick sort
+
+
 
 # tim sort
