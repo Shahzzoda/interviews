@@ -1,16 +1,20 @@
 # Bubble sort - compares adjacent pairs and swaps every time until sorted
 # Worst case is O(n^2) this happens when its reverse sorted
-# Best case is O(n) this happens when its sorted. I didn't implemented in 
-# my code but you can go through it once to see if it needs swapping, that's O(n).
+# Best case is O(n) this happens when its sorted (due to the sorted boolean)
 def bubblesort(arr):
+    sorted = False
     for i in range(len(arr)): # go through whole array
         for j in range(len(arr)-1-i): #go through the array up to n-1-i 
         # (bc we access arr[j+1] and we already know the last i elements will 
         # be sorted after our i'th passing.) 
+            sorted = True
             print("comparing", arr[j], "and", arr[j+1])
             if arr[j] > arr[j+1]:
+                sorted = False
                 arr[j], arr[j+1] = arr[j+1], arr[j]
+        if sorted: return arr # optimized to return if its sorted after one pass
         print("after one passing", arr)
+    return arr
 
 # Selection sort - bubble sort brings the largest elements to the end slowly, 
 # in that sense, selection sort is the inverse of that (not exactly since we 
@@ -54,6 +58,12 @@ def insertionsort(arr):
 # one and four get merged as [1, 4] and returned to be comapred to [5, 8]
 # both of those are compared to return [1, 4, 5, 8]
 # we'll need a recursive mergesort, and a helper function to sort the array
+# runtime: O(nlogn) this is becuse it splits it in half till base case of 1 
+# this is the definition of log (base 2) n. and for each of these n, we 
+# compare the elements which are of size n. The interesting thing about mergesort 
+# is that it has a great runtime but it's always O(nlogn) where as bubble sort 
+# that has a worse big O runtime of O(n^2) will sometimes outperform it. For intance
+# if it's already sorted, bubble sort will do O(n) but mergesort will still do O(nlogn)
 def mergesort(arr):
     if len(arr) < 2: return arr 
     mid = len(arr) // 2
