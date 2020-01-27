@@ -91,8 +91,34 @@ def merge(arr1, arr2):
     if j < len2:
         arr.extend(arr2[j:])
     return arr
-# quick sort
 
+# quicksort - Quicksort works by repeatedly splitting the array to 
+# partitions around the pivot--meaning, it'll organize the subarr/arr 
+# to less than pivot and greater than pivot. this essentially ensures
+# that the pivot is at the exact location it needs to be in after the 
+# partition. every element will get to be the pivot and therefore 
+# find it's perfect spot. partition is what picks the pivot (the last
+# element in the subarray) and puts everything less then before the pivot
+# and everything greater than after the pivot, puts the pivot in the right 
+# place. then it does the partition (pick pivot and rearrange) for each of  
+# the subarrays left and right of the partition.
+
+def quicksort(arr, begin, end):
+    if begin >= end: return 
+    pivot = partition(arr, begin, end) # the place to partition around
+    quicksort(arr, begin, pivot - 1) # run partition on the left side of pivot 
+    quicksort(arr, pivot + 1, end) # run partition on the right side of pivot
+
+def partition(arr, begin, end):
+    pivot = end # the last element is our pivot
+    i, j = begin - 1 , begin # i always will start off index, j will be where to begin
+    while j < pivot: # as long we dont see the pivit 
+        if arr[j] <= arr[pivot]: 
+            i += 1 
+            arr[i], arr[j] = arr[j], arr[i] 
+        j += 1
+    arr[i+1], arr[pivot] = arr[pivot], arr[i+1]
+    return i+1
 
 
 # tim sort
