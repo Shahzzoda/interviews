@@ -107,6 +107,7 @@ def merge(arr1, arr2):
 # be if your array is sorted in some order (ascending/descending)
 # more often, you dont have to worry about this worst case. it's often O(nlogn)
 # bc you split it each time and you do a factor or n comparisions for each logn
+# space complexity is O(logn) as you do logn recursion calls. 
  
 def quicksort(arr, begin, end):
     if begin >= end: return 

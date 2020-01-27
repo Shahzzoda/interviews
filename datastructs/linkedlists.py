@@ -36,10 +36,10 @@ class SinglyNode(Node):
 #   1 -> 2 -> 3 -> 4 -> None
 def reversesingly1(head):
     if head == None or head.next == None: return head
-    newhead = reversesingly1(head.next)
+    newhead = reversesingly1(head.next) # this will be the last element on the list 
     head.next.next = head
     head.next = None
-    return newhead
+    return newhead # we keep passing thew new head unchanged up the stack until returned
 
 # I feel like I understand this and forget it way too many times so here's an 
 # explaination:
