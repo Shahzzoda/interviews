@@ -64,11 +64,24 @@ def reversesingly1(head):
 #    you get it. at the end, it returns with the reversed linked list. 
 
 def reversesingly2(head):
+    pass
 
 
 
+# 2. Delete in a linked list in place and return the new head
+def deleteNode(head, val):
+    if head == None: return head
+    if head.val == val: return head.next
 
-# 2. Delete in a linked list
+    temp = head
+    while head.next:
+        if head.next.val == val:
+            head.next = head.next.next
+            break
+        head = head.next
+    return temp
+
+
 # 3. Insert in a given position 
 # 4. Merge two sorted linked list 
 
@@ -79,4 +92,4 @@ n4 = SinglyNode(4)
 n1.next = n2
 n2.next = n3
 n3.next = n4
-print(reversesingly1(n1))
+print(deleteNode(n1, 1))

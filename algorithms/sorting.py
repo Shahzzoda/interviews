@@ -101,8 +101,13 @@ def merge(arr1, arr2):
 # element in the subarray) and puts everything less then before the pivot
 # and everything greater than after the pivot, puts the pivot in the right 
 # place. then it does the partition (pick pivot and rearrange) for each of  
-# the subarrays left and right of the partition.
-
+# the subarrays left and right of the partition. 
+# Runtime: O(n^2) -> if you pick the wrong pivot (greatest element or 
+# smallest element) you keep doing partitons unevenly. however this would 
+# be if your array is sorted in some order (ascending/descending)
+# more often, you dont have to worry about this worst case. it's often O(nlogn)
+# bc you split it each time and you do a factor or n comparisions for each logn
+ 
 def quicksort(arr, begin, end):
     if begin >= end: return 
     pivot = partition(arr, begin, end) # the place to partition around
